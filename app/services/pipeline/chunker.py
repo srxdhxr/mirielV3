@@ -13,15 +13,19 @@ class Chunker:
     Chunks scraped content using LangChain text splitter
     """
     
-    def __init__(self, tenant_id: int, user_id: int, output_dir: str = "chunked_data"):
+    def __init__(self, tenant_id: int, user_id: int, output_dir: str = None):
         """
         Initialize Chunker
         
         Args:
             tenant_id: Tenant ID
             user_id: User ID
-            output_dir: Base directory for chunked files
+            output_dir: Base directory for chunked files (uses DATA_DIR env var in production)
         """
+        if output_dir is None:
+            base_dir = os.environ.get('DATA_DIR', '.')
+            output_dir = f"{base_dir}/chunked_data" if base_dir != '.' else "chunked_data"
+        
         self.tenant_id = tenant_id
         self.user_id = user_id
         self.output_dir = output_dir

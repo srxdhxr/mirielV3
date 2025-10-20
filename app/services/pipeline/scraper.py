@@ -24,14 +24,19 @@ class Scraper:
         result = scraper.scrape("https://example.com/page")
     """
     
-    def __init__(self, tenant_id: int, output_dir: str = "scraped_data"):
+    def __init__(self, tenant_id: int, output_dir: str = None):
         """
         Initialize the scraper
         
         Args:
             tenant_id: Tenant ID for organizing scraped data
-            output_dir: Base directory for storing scraped content
+            output_dir: Base directory for storing scraped content (uses DATA_DIR env var in production)
         """
+        # Use Railway volume if DATA_DIR is set, otherwise use provided dir or default
+        if output_dir is None:
+            base_dir = os.environ.get('DATA_DIR', '.')
+            output_dir = f"{base_dir}/scraped_data" if base_dir != '.' else "scraped_data"
+        
         self.tenant_id = tenant_id
         self.output_dir = output_dir
         self._ensure_output_dir()

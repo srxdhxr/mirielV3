@@ -15,15 +15,19 @@ class Vectorizer:
     Uses sentence-transformers for free local embeddings
     """
     
-    def __init__(self, tenant_id: int, user_id: int, chroma_dir: str = "chroma_data"):
+    def __init__(self, tenant_id: int, user_id: int, chroma_dir: str = None):
         """
         Initialize Vectorizer
         
         Args:
             tenant_id: Tenant ID
             user_id: User ID
-            chroma_dir: Base directory for ChromaDB storage
+            chroma_dir: Base directory for ChromaDB storage (uses DATA_DIR env var in production)
         """
+        if chroma_dir is None:
+            base_dir = os.environ.get('DATA_DIR', '.')
+            chroma_dir = f"{base_dir}/chroma_data" if base_dir != '.' else "chroma_data"
+        
         self.tenant_id = tenant_id
         self.user_id = user_id
         self.chroma_dir = chroma_dir
