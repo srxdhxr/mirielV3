@@ -1,43 +1,43 @@
 # FastAPI and server
-fastapi==0.115.0
-uvicorn[standard]==0.32.0
+fastapi
+uvicorn
 
 # Database
-SQLAlchemy==2.0.36
-PyMySQL==1.1.1
-cryptography==43.0.1
+SQLAlchemy
+PyMySQL
+cryptography
 
 # Configuration and validation
-pydantic==2.9.2
-pydantic-settings==2.6.0
-python-dotenv==1.0.1
+pydantic
+pydantic-settings
+python-dotenv
 
 # Email validation
-email-validator==2.2.0
+email-validator
 
 # Authentication
-PyJWT==2.9.0
-passlib==1.7.4
+PyJWT
+passlib
 
 # Web scraping
-requests==2.32.3
-playwright==1.48.0
-trafilatura==1.13.0
+requests
+playwright
+trafilatura
 
 # Task queue
-redis==5.2.0
-rq==2.0.0
+redis
+rq
 
 # Text processing
-langchain==0.3.7
-tiktoken==0.8.0
+langchain
+tiktoken
 
 # Vector database and embeddings
-chromadb==0.5.20
-sentence-transformers==3.3.0
+chromadb
+sentence-transformers
 
 # AI/LLM
-mistralai==1.2.3
+mistralai
 
 # Production server
-gunicorn==23.0.0
+gunicorn
