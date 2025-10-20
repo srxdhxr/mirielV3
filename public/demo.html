@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miriel Chat Widget Demo</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+        
+        h1 {
+            color: #333;
+        }
+        
+        .demo-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+        
+        .code-block {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 14px;
+        }
+        
+        .demo-content {
+            min-height: 400px;
+        }
+        
+        .button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            margin: 10px 10px 10px 0;
+        }
+        
+        .button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>🚀 Miriel Chat Widget Demo</h1>
+    
+    <div class="demo-section">
+        <h2>📝 How to Embed</h2>
+        <p>Add this ONE line to your website:</p>
+        <div class="code-block">
+&lt;script 
+  src="http://localhost:8000/widget.js" 
+  data-api-key="YOUR_WIDGET_API_KEY"&gt;
+&lt;/script&gt;
+        </div>
+        <p style="margin-top: 20px;"><strong>Note:</strong> Get your API key from the <code>/api/v1/widgets/embed-code</code> endpoint after creating a widget.</p>
+    </div>
+
+    <div class="demo-section">
+        <h2>🎮 Test the Widget</h2>
+        <p>Look for the chat tab on the right side (desktop) or bottom (mobile). Click it to open!</p>
+        
+        <div class="demo-content">
+            <h3>Try these actions:</h3>
+            <button class="button" onclick="MirielChat.open()">Open Chat</button>
+            <button class="button" onclick="MirielChat.close()">Close Chat</button>
+            <button class="button" onclick="MirielChat.send('What is your routing number?')">Send Test Message</button>
+            
+            <h3 style="margin-top: 40px;">Features:</h3>
+            <ul>
+                <li>✅ Responsive (desktop & mobile)</li>
+                <li>✅ Drawer-style UI (like Cursor)</li>
+                <li>✅ Session persistence (localStorage)</li>
+                <li>✅ Message history loading</li>
+                <li>✅ Typing indicators</li>
+                <li>✅ Source citations</li>
+                <li>✅ Error handling</li>
+                <li>✅ Auto-scrolling</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <h2>🎨 Customization</h2>
+        <p>Customize your widget colors via the API:</p>
+        <ul>
+            <li><strong>Chat Header Color</strong> - Main header background</li>
+            <li><strong>Close Icon Color</strong> - Close button color</li>
+            <li><strong>Chat Background</strong> - Messages area background</li>
+            <li><strong>AI Bubble Color</strong> - AI message bubble color</li>
+            <li><strong>Human Bubble Color</strong> - User message bubble color</li>
+            <li><strong>Text Box Color</strong> - Input field background</li>
+            <li><strong>Send Button Color</strong> - Send button background</li>
+        </ul>
+        <p>Update via: <code>PUT /api/v1/widgets/customization</code></p>
+    </div>
+
+    <div class="demo-section">
+        <h2>📱 Mobile Responsive</h2>
+        <p>Resize your browser to see mobile behavior:</p>
+        <ul>
+            <li><strong>Desktop:</strong> Tab on right side, drawer opens from right</li>
+            <li><strong>Mobile:</strong> Tab at bottom, drawer slides up from bottom</li>
+        </ul>
+    </div>
+
+    <script src="http://0.0.0.0:8000/widget.js"  
+            data-api-key="mrw_Z_xrTHC8s-WVLDuXGE1xUHoHobwRLuoj9mei1Jv_Sjg"></script>
+</body>
+</html>
+
